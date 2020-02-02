@@ -1,2 +1,2 @@
-# startup
+# Startup
 A potential Startup
