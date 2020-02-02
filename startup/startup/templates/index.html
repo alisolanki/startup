@@ -52,10 +52,10 @@
 
                             <ul>
                                 <li><a href="#">HOME</a></li>
-                                <li><a href="#">SUNFEST 2018</a></li>
-                                <li><a href="#">ARTISTS</a></li>
+                                <li><a href="{% url 'login' %}">LOGIN</a></li>
+                                <li><a href="{% url 'register' %}">SIGNUP</a></li>
                                 <li><a href="#">BLOG</a></li>
-                                <li><a href="#">CONTACT</a></li>
+                                <li><a href="{% url 'user' %}">CONTACT</a></li>
                                 <li><a href="#"><i class="fas fa-search"></i></a></li>
                             </ul><!-- flex -->
                         </nav><!-- .site-navigation -->
@@ -262,7 +262,7 @@
                                 <figure class="featured-image">
                                     <img src="{% static 'images/next-event-2.jpg' %}" alt="">
 
-                                    <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
+                                    <a href="#" class="entry-content flex flex-column justify-content-center align-items-left">
                                         <h3>Welcoming Party 2018</h3>
                                         <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
                                     </a>
@@ -408,14 +408,14 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div><!-- footer-content-wrapper -->
     </footer><!-- site-footer -->
 
-    <script type='text/javascript' src="{% static 'particles.js-master/particles.js' %}"></script>
-    <!-- <script type='text/javascript' src="particles.js-master/particles.min.js"></script> -->
-    <script type='text/javascript' src="{% static 'particles.js-master/app.js' %}"></script>
+    <!-- <script type='text/javascript' src="{% static 'particles.js-master/particles.js' %}"></script> -->
+    <!-- <script type='text/javascript' src="{% static 'particles.js-master/particles.min.js' %}"></script> -->
+    <!-- <script type='text/javascript' src="{% static 'particles.js-master/app.js' %}"></script> -->
 
     <script type='text/javascript' src="{% static 'js/jquery.js' %}"></script>
     <script type='text/javascript' src="{% static 'js/masonry.pkgd.min.js' %}"></script>
     <script type='text/javascript' src="{% static 'js/jquery.collapsible.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'js/swiper.min.js'"></script>
+    <script type='text/javascript' src="{% static 'js/swiper.min.js' %}"></script>
     <script type='text/javascript' src="{% static 'js/jquery.countdown.min.js' %}"></script>
     <script type='text/javascript' src="{% static 'js/circle-progress.min.js' %}"></script>
     <script type='text/javascript' src="{% static 'js/jquery.countTo.min.js' %}"></script>
