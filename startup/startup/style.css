@@ -223,9 +223,9 @@ body {
         padding: 0;
     }
 
-    .site-navigation ul li:nth-last-of-type(1) {
+    /* .site-navigation ul li:nth-last-of-type(1) {
         padding-left: 60px;
-    }
+    } */
 
     .site-navigation ul li a {
         color: #fff;
