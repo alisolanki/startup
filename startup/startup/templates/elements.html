@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -9,16 +10,16 @@
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 
     <!-- FontAwesome CSS -->
-    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
 
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body class="elements-page">
     <header class="site-header">
@@ -364,13 +365,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div><!-- footer-content-wrapper -->
     </footer><!-- site-footer -->
 
-    <script type='text/javascript' src='js/jquery.js'></script>
-    <script type='text/javascript' src='js/masonry.pkgd.min.js'></script>
-    <script type='text/javascript' src='js/jquery.collapsible.min.js'></script>
-    <script type='text/javascript' src='js/swiper.min.js'></script>
-    <script type='text/javascript' src='js/jquery.countdown.min.js'></script>
-    <script type='text/javascript' src='js/circle-progress.min.js'></script>
-    <script type='text/javascript' src='js/jquery.countTo.min.js'></script>
-    <script type='text/javascript' src='js/custom.js'></script>
+    <script type='text/javascript' src={% static 'js/jquery.js' %}></script>
+    <script type='text/javascript' src={% static 'js/masonry.pkgd.min.js' %}></script>
+    <script type='text/javascript' src={% static 'js/jquery.collapsible.min.js' %}></script>
+    <script type='text/javascript' src={% static 'js/swiper.min.js' %}></script>
+    <script type='text/javascript' src={% static 'js/jquery.countdown.min.js' %}></script>
+    <script type='text/javascript' src={% static 'js/circle-progress.min.js' %}></script>
+    <script type='text/javascript' src={% static 'js/jquery.countTo.min.js' %}></script>
+    <script type='text/javascript' src={% static 'js/custom.js' %}></script>
 </body>
 </html>

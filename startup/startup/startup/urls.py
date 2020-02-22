@@ -24,5 +24,6 @@ urlpatterns = [
     path('user/', include('user.urls')),
     path('event/', include('event.urls')),
     path('place/', include('place.urls')),
+    path('elements/', views.elements, name='elements'),
     path('', views.index, name='index')
 ]

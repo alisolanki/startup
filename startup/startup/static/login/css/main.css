@@ -474,3 +474,8 @@ iframe {
     padding-right: 15px;
   }
 } 
+@media (min-width: 577px) {
+  #home-btn{
+    position: fixed;
+  }
+}

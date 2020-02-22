@@ -35,9 +35,9 @@
 </head>
 <body></body>
 
-<a type="button" class="btn btn-primary btn-circle btn-xl" href="{% url 'index' %}"
+<a type="button" class="btn btn-primary btn-circle btn-xl" href="{% url 'index' %}" id="home-btn"
 style="border-radius: 50%; margin-top: 2rem; margin-left: 2rem; margin-right: 2rem;">
-    <i class="zmdi zmdi-home"></i>
+        <i class="zmdi zmdi-home"></i>
 </a>
             
     <!-- Register -->
@@ -57,7 +57,7 @@ style="border-radius: 50%; margin-top: 2rem; margin-left: 2rem; margin-right: 2r
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "Phone number is required">
 						<span class="label-input100">Phone number</span>
-						<input class="input100" type="text" name="phonenumber" placeholder="Phone Number">
+						<input class="input100" type="number" name="phonenumber" placeholder="Phone Number">
 						<span class="focus-input100" data-symbol="&#xf2be;"></span>
                     </div>
                     
