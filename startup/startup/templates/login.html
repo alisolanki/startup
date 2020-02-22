@@ -29,7 +29,14 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	<!-- <a class="back-button fa fa-home" href="{% url 'index' %}"></a> -->
+
+	<!-- Home button -->
+	<a type="button" class="btn btn-primary btn-circle btn-xl" href="{% url 'index' %}"
+		style="border-radius: 50%; margin-top: 2rem; margin-left: 2rem; margin-right: 2rem;">
+    	<i class="zmdi zmdi-home"></i>
+	</a>
+
+	<!-- Login Page -->
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-100 p-b-54">
