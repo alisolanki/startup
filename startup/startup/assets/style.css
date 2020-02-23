@@ -1029,9 +1029,10 @@ body {
 
 .page-header .entry-title {
     font-size: 72px;
-    color: white;
+    color: #a2f7f0;
     margin: 0;
     padding: 0;
+    text-align: right;
 }
 
 .page-header .breadcrumbs {
@@ -1778,10 +1779,12 @@ body {
 ------------------------------------------------------------*/
 .elements-page {
     background: url("images/elements-total-background.jpg") no-repeat;
+    background-size: cover;
 }
 
 .elements-page .page-header {
     background: url("images/elements-header-background.jpg") no-repeat;
+    background-size: cover;
 }
 
 .elements-page .elements-wrap {
@@ -2016,10 +2019,10 @@ body {
     content: "03.";
 }
 
-
-
-
-
-
-
-
+#form-title{
+    padding-top: 100px;
+    font-size: 48px;
+    color:black;
+    text-shadow: 1px 1px 2px #6c757d;
+    text-align: center;
+}
