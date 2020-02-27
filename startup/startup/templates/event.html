@@ -1,4 +1,5 @@
 {% load static %}
+{% static "images" as baseURL %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,7 +87,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="entry-header">
-                        <h2 class="entry-title">event-name</h2>
+                        <h2 class="entry-title">{{event.name}}</h2>
                     </div><!-- .entry-header -->
                 </div><!-- .col-12 -->
             </div><!-- .row -->
@@ -99,13 +100,13 @@
             <div class="row elements-wrap">
                 <div class="col-12 buttons-wrap">
                     <div class="entry-header">
-                        <h2 class="entry-title" style="margin-bottom: 0;">event-name at place-name</h2>
+                        <h2 class="entry-title" style="margin-bottom: 10px;">{{events.name}} at {{events.place}}</h2>
                         <p class="p-b-100">
                             <span class="p-r-50">
                                 Date: event-date
                             </span>
                             <span>
-                                Place: <a href="{% url 'place' %}">place-name</a>
+                                Place: <a href="{% url 'place' %}">{{events.place}}</a>
                             </span>
                         </p>
                     </div><!-- entry-header -->
@@ -123,7 +124,7 @@
         
                             <div class="wrap-input100 validate-input m-b-23" data-validate = "Name is required">
                                 <span class="label-input100">Name</span>
-                                <input class="input100" type="text" name="name" placeholder="Name">
+                                <input class="input100" type="text" name="name" placeholder="person.name">
                                 <span class="focus-input100" data-symbol="&#xf206;"></span>
                             </div>
         
@@ -186,7 +187,7 @@
             </div>
         </div>
 
-        <!-- Places -->
+        <!-- Events -->
         <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -196,77 +197,19 @@
                             </div><!-- entry-title -->
     
                             <div class="row the-complete-lineup-artists">
+                                {% for event in events %}
                                 <div class="col-6 col-md-4 col-lg-3 artist-single">
                                     <figure class="featured-image">
-                                        <a href="{% url 'event' %}"> <img src="{% static 'images/image-1.jpg' %}" alt=""> </a>
-                                        <a href="#" class="box-link"> <img src="{% static 'images/box.jpg' %}" alt=""> </a>
-                                    </figure><!-- featured-image -->
+                                        <a href="{% url 'event' %}"> <img src="{{baseURL}}/{{event.img}}" alt="Flyer"> </a>
+                                        <a href="#" class="box-link"> <img src="{{baseURL}}/{{event.img}}}}" alt=""> </a>
+                                    </figure>  <!--featured image-->
     
-                                    <h2>Event 1</h2>
-                                </div><!-- artist-single -->
-    
-                                <div class="col-6 col-md-4 col-lg-3 artist-single">
-                                    <figure class="featured-image">
-                                        <a href="{% url 'event' %}"> <img src="{% static 'images/image-2.jpg' %}" alt=""> </a>
-                                        <a href="#" class="box-link"> <img src="{% static 'images/box.jpg' %}" alt=""> </a>
-                                    </figure><!-- featured-image -->
-    
-                                    <h2>Hayley Down</h2>
-                                </div><!-- artist-single -->
-    
-                                <div class="col-6 col-md-4 col-lg-3 artist-single">
-                                    <figure class="featured-image">
-                                        <a href="#"> <img src="{% static 'images/image-3.jpg' %}" alt=""> </a>
-                                        <a href="#" class="box-link"> <img src="{% static 'images/box.jpg' %}" alt=""> </a>
-                                    </figure><!-- featured-image -->
-    
-                                    <h2>The Band Song</h2>
-                                </div><!-- artist-single -->
-    
-                                <div class="col-6 col-md-4 col-lg-3 artist-single">
-                                    <figure class="featured-image">
-                                        <a href="#"> <img src="{% static 'images/image-4.jpg' %}" alt=""> </a>
-                                        <a href="#" class="box-link"> <img src="{% static 'images/box.jpg' %}" alt=""> </a>
-                                    </figure><!-- featured-image -->
-    
-                                    <h2>Pink Machine</h2>
-                                </div><!-- artist-single -->
-    
-                                <div class="col-6 col-md-4 col-lg-3 artist-single">
-                                    <figure class="featured-image">
-                                        <a href="#"> <img src="{% static 'images/image-5.jpg' %}" alt=""> </a>
-                                        <a href="#" class="box-link"> <img src="{% static 'images/box.jpg' %}" alt=""> </a>
-                                    </figure><!-- featured-image -->
-    
-                                    <h2>Brasil Band</h2>
-                                </div><!-- artist-single -->
-    
-                                <div class="col-6 col-md-4 col-lg-3 artist-single">
-                                    <figure class="featured-image">
-                                        <a href="#"> <img src="{% static 'images/image-6.jpg' %}" alt=""> </a>
-                                        <a href="#" class="box-link"> <img src="{% static 'images/box.jpg' %}" alt=""> </a>
-                                    </figure><!-- featured-image -->
-    
-                                    <h2>Mickey</h2>
-                                </div><!-- artist-single -->
-    
-                                <div class="col-6 col-md-4 col-lg-3 artist-single">
-                                    <figure class="featured-image">
-                                        <a href="#"> <img src="{% static 'images/image-7.jpg' %}" alt=""> </a>
-                                        <a href="#" class="box-link"> <img src="{% static 'images/box.jpg' %}" alt=""> </a>
-                                    </figure><!-- featured-image -->
-    
-                                    <h2>DJ Girl</h2>
-                                </div><!-- artist-single -->
-    
-                                <div class="col-6 col-md-4 col-lg-3 artist-single">
-                                    <figure class="featured-image">
-                                        <a href="#"> <img src="{% static 'images/image-8.jpg' %}" alt=""> </a>
-                                        <a href="#" class="box-link"> <img src="{% static 'images/box.jpg' %}" alt=""> </a>
-                                    </figure><!-- featured-image -->
-    
-                                    <h2>Stan Smith</h2>
-                                </div><!-- artist-single -->
+                                    <h2>{{event.name}}</h2>
+                                    <p>
+                                        <a href="{% url 'place' %}" style="float: right;">{{event.place}}</a>
+                                    </p>
+                                </div> <!-- artist lineup -->
+                                {% endfor %}
                             </div><!-- the-complete-lineup-artists -->
     
                             <div class="row justify-content-center">
@@ -456,6 +399,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!--===============================================================================================-->
 	<script src="{% static 'login/vendor/countdowntime/countdowntime.js' %}"></script>
 <!--===============================================================================================-->
-	<script src="{% static 'login/js/main.js' %}"></script>
+    <script src="{% static 'login/js/main.js' %}"></script>
 </body>
 </html>
