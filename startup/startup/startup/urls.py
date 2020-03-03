@@ -27,7 +27,8 @@ urlpatterns = [
     path('event/', include('event.urls')),
     path('place/', include('place.urls')),
     path('elements/', views.elements, name='elements'),
-    path('', views.index, name='index')
+    path('', include('home.urls')),
+    # path('', views.index, name='index')
 ]
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

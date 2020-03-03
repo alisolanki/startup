@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'event.apps.EventConfig',
+    'home.apps.HomeConfig',
     'phonenumber_field',
 ]
 

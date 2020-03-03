@@ -1,4 +1,5 @@
 {% load static %}
+{% static "images" as baseURL %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -93,8 +94,8 @@
             <img src="{% static '/images/guestin.logos/text_symbol_white.png' %}" alt="GuestIn"/>
         </div>
 
-    <div class="content-section">
-        <div class="container">
+    <div class="content-section" style="padding-bottom: 0;">
+        <div class="container" style="padding-bottom: 50px;">
             <div class="row">
                 <div class="col-12">
                     <div class="the-complete-lineup">
@@ -104,87 +105,28 @@
                         </div><!-- entry-title -->
 
                         <div class="row the-complete-lineup-artists">
+                            {% for event in events %}
                             <div class="col-6 col-md-4 col-lg-3 artist-single">
                                 <figure class="featured-image">
-                                    <a href="{% url 'event' %}"> <img src="{% static 'images/image-1.jpg' %}" alt="Hello"> </a>
-                                    <a href="#" class="box-link"> <img src="{% static 'images/box.jpg' %}" alt=""> </a>
-                                </figure><!-- featured-image -->
+                                    <a href="{% url 'event' %}"> <img src="{{event.img.url}}" alt="Flyer"> </a>
+                                    <!-- <a href="#" class="box-link"> <img src="{{event.img.url}}" alt=""> </a> -->
+                                </figure>  <!--featured image-->
 
-                                <h2>Event 1</h2>
-                            </div><!-- artist-single -->
+                                <h2>{{event.name}}</h2>
+                                <p>
+                                    <a href="{% url 'place' %}" style="float: right;">{{event.place}}</a>
+                                </p>
+                            </div> <!-- artist lineup -->
+                            {% endfor %}
+                    </div><!-- the-complete-lineup -->
 
-                            <div class="col-6 col-md-4 col-lg-3 artist-single">
-                                <figure class="featured-image">
-                                    <a href="{% url 'event' %}"> <img src="{% static 'images/image-2.jpg' %}" alt=""> </a>
-                                    <a href="#" class="box-link"> <img src="{% static 'images/box.jpg' %}" alt=""> </a>
-                                </figure><!-- featured-image -->
-
-                                <h2>Hayley Down</h2>
-                            </div><!-- artist-single -->
-
-                            <div class="col-6 col-md-4 col-lg-3 artist-single">
-                                <figure class="featured-image">
-                                    <a href="#"> <img src="{% static 'images/image-3.jpg' %}" alt=""> </a>
-                                    <a href="#" class="box-link"> <img src="{% static 'images/box.jpg' %}" alt=""> </a>
-                                </figure><!-- featured-image -->
-
-                                <h2>The Band Song</h2>
-                            </div><!-- artist-single -->
-
-                            <div class="col-6 col-md-4 col-lg-3 artist-single">
-                                <figure class="featured-image">
-                                    <a href="#"> <img src="{% static 'images/image-4.jpg' %}" alt=""> </a>
-                                    <a href="#" class="box-link"> <img src="{% static 'images/box.jpg' %}" alt=""> </a>
-                                </figure><!-- featured-image -->
-
-                                <h2>Pink Machine</h2>
-                            </div><!-- artist-single -->
-
-                            <div class="col-6 col-md-4 col-lg-3 artist-single">
-                                <figure class="featured-image">
-                                    <a href="#"> <img src="{% static 'images/image-5.jpg' %}" alt=""> </a>
-                                    <a href="#" class="box-link"> <img src="{% static 'images/box.jpg' %}" alt=""> </a>
-                                </figure><!-- featured-image -->
-
-                                <h2>Brasil Band</h2>
-                            </div><!-- artist-single -->
-
-                            <div class="col-6 col-md-4 col-lg-3 artist-single">
-                                <figure class="featured-image">
-                                    <a href="#"> <img src="{% static 'images/image-6.jpg' %}" alt=""> </a>
-                                    <a href="#" class="box-link"> <img src="{% static 'images/box.jpg' %}" alt=""> </a>
-                                </figure><!-- featured-image -->
-
-                                <h2>Mickey</h2>
-                            </div><!-- artist-single -->
-
-                            <div class="col-6 col-md-4 col-lg-3 artist-single">
-                                <figure class="featured-image">
-                                    <a href="#"> <img src="{% static 'images/image-7.jpg' %}" alt=""> </a>
-                                    <a href="#" class="box-link"> <img src="{% static 'images/box.jpg' %}" alt=""> </a>
-                                </figure><!-- featured-image -->
-
-                                <h2>DJ Girl</h2>
-                            </div><!-- artist-single -->
-
-                            <div class="col-6 col-md-4 col-lg-3 artist-single">
-                                <figure class="featured-image">
-                                    <a href="#"> <img src="{% static 'images/image-8.jpg' %}" alt=""> </a>
-                                    <a href="#" class="box-link"> <img src="{% static 'images/box.jpg' %}" alt=""> </a>
-                                </figure><!-- featured-image -->
-
-                                <h2>Stan Smith</h2>
-                            </div><!-- artist-single -->
-                        </div><!-- the-complete-lineup-artists -->
-
-                        <div class="row justify-content-center">
-                            <div class="see-complete-lineup">
-                                <div class="entry-footer">
-                                    <a href="{% url 'event' %}" class="btn">See all Events</a>
-                                </div>
+                    <div class="row justify-content-center">
+                        <div class="see-complete-lineup">
+                            <div class="entry-footer">
+                                <a href="{% url 'event' %}" class="btn">See all Events</a>
                             </div>
                         </div>
-                    </div><!-- the-complete-lineup -->
+                    </div>
                 </div><!-- col-12 -->
             </div><!-- row -->
         </div><!-- container -->
@@ -376,6 +318,7 @@
         </div><!-- home-page-last-news -->
     </div>
 
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-cover-title flex justify-content-center align-items-center">
             <h2>GuestIn</h2>
