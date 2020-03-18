@@ -3,7 +3,8 @@ from django.db import models
 # Create your models here.
 class Event(models.Model):
     img = models.ImageField(upload_to = 'pics')
-    name = models.CharField(max_length = 50)
+    name = models.CharField(max_length = 50, default = 'event-name')
+    slug = models.CharField(max_length = 50, default = 'name%place%01%01%2001%')
     date = models.DateField()
     place = models.CharField(max_length = 50)
     time = models.TimeField()

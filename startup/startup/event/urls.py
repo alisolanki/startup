@@ -16,6 +16,9 @@ Including another URLconf
 from django.urls import path
 from event import views
 
+app_name = 'event'
+
 urlpatterns = [
     path('', views.event, name='event'),
+    path('<slug>', views.eventid, name='eventid'),
 ]
