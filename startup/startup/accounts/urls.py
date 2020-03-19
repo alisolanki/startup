@@ -1,4 +1,4 @@
-"""login URL Configuration
+"""accounts URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from login import views
+from accounts import views
 
 urlpatterns = [
-    path('', views.login, name='login'),
+    path('login/', views.login, name='login'),
+    path('register/', views.register, name='register'),
 ]
