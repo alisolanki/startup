@@ -16,6 +16,9 @@ Including another URLconf
 from django.urls import path
 from place import views
 
+app_name = 'place'
+
 urlpatterns = [
     path('', views.place, name='place'),
+    path('<place>', views.placeid, name='placeid'),
 ]

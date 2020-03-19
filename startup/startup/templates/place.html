@@ -1,4 +1,5 @@
 {% load static %}
+{% static "images" as baseURL %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,17 +28,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
+<body class="elements-page">
     <header class="site-header">
         <div class="header-bar">
             <div class="container-fluid">
                 <div class="row align-items-center">
                     <div class="col-10 col-lg-4">
                         <h1 class="site-branding flex">
-                            <a href="#">GuestIn</a>
+                            <a href="{% url 'home' %}" style="font-size: 30px;">GuestIn</a>
                         </h1>
                     </div>
-    
+
                     <div class="col-2 col-lg-8">
                         <nav class="site-navigation">
                             <div class="hamburger-menu d-lg-none">
@@ -46,7 +47,7 @@
                                 <span></span>
                                 <span></span>
                             </div><!-- .hamburger-menu -->
-    
+
                             <ul>
                                 <li><a href="{% url 'home' %}">HOME</a></li>
                                 <li><a href="{% url 'login' %}">LOGIN</a></li>
@@ -60,6 +61,108 @@
             </div><!-- container-fluid -->
         </div><!-- header-bar -->
     </header><!-- .site-header -->
-    <h1>Place</h1>
+
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="entry-header">
+                        <h2 class="entry-title">{{place}}</h2>
+                    </div><!-- .entry-header -->
+                </div><!-- .col-12 -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div><!-- .page-header -->
+
+    <div class="content-section" style="padding-bottom: 0;">
+        <div class="container" style="padding-bottom: 50px;">
+            <div class="row">
+                <div class="col-12">
+                    <div class="the-complete-lineup">
+                        <div class="entry-title">
+                            <p>JUST THE BEST</p>
+                            <h2>Events:</h2>
+                        </div><!-- entry-title -->
+
+                        <div class="row the-complete-lineup-artists">
+                            {% for event in places %}
+                            <div class="col-6 col-md-4 col-lg-3 artist-single">
+                                <figure class="featured-image">
+                                    <a href="{% url 'event:eventid' slug=event.slug %}"> <img src="{{event.img.url}}" alt="Flyer"> </a>
+                                    <!-- <a href="#" class="box-link"> <img src="{{event.img.url}}" alt=""> </a> -->
+                                </figure>  <!--featured image-->
+
+                                <h2>{{event.name}}</h2>
+                                <p>
+                                    <a href="{% url 'place:placeid' place=event.place %}" style="float: right;">{{event.place}}</a>
+                                </p>
+                            </div> <!-- artist lineup -->
+                            {% endfor %}
+                    </div><!-- the-complete-lineup -->
+
+                    <div class="row justify-content-center">
+                        <div class="see-complete-lineup">
+                            <div class="entry-footer">
+                                <a href="{% url 'event:event' %}" class="btn">See all Events</a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- col-12 -->
+            </div><!-- row -->
+        </div><!-- container -->
+    </div><!-- home-page-last-news -->
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-cover-title flex justify-content-center align-items-center">
+            <h2>GuestIn</h2>
+        </div><!-- .site-footer -->
+
+        <div class="footer-content-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="entry-title">
+                            <h2>Contact Us</h2>
+                        </div><!-- entry-title -->
+
+                        <div class="entry-mail">
+                                <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=alisolanki123@gmail.com&su=&body=&bcc=&tf=1">alisolanki123@gmail.com</a>
+                            </div><!-- .entry-mail -->
+
+                        <div class="copyright-info">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </div><!-- copyright-info -->
+
+                        <div class="footer-social">
+                            <ul class="flex justify-content-center align-items-center">
+                                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div><!-- footer-social -->
+                    </div><!-- col -->
+                </div><!-- row -->
+            </div><!-- container -->
+        </div><!-- footer-content-wrapper -->
+    </footer><!-- site-footer -->
+
+    <!-- <script type='text/javascript' src="{% static 'particles.js-master/particles.js' %}"></script> -->
+    <!-- <script type='text/javascript' src="{% static 'particles.js-master/particles.min.js' %}"></script> -->
+    <!-- <script type='text/javascript' src="{% static 'particles.js-master/app.js' %}"></script> -->
+
+    <script type='text/javascript' src="{% static 'js/jquery.js' %}"></script>
+    <script type='text/javascript' src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'js/jquery.collapsible.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'js/swiper.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'js/circle-progress.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'js/jquery.countTo.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'js/custom.js' %}"></script>
 </body>
 </html>
