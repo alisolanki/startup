@@ -49,9 +49,15 @@
                             </div><!-- .hamburger-menu -->
 
                             <ul>
-                                <li><a href="{% url 'home' %}">HOME</a></li>
+                                {% if user.is_authenticated %}
+                                <li><a href="{% url 'user' %}">Hello, {{user.first_name}}</a></li>
+                                <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+                                <li><a href="#">HOME</a></li>
+                                {% else %}
+                                <li><a href="#">HOME</a></li>
                                 <li><a href="{% url 'login' %}">LOGIN</a></li>
                                 <li><a href="{% url 'register' %}">REGISTER</a></li>
+                                {% endif %}
                                 <li><a href="#">BLOG</a></li>
                                 <li><a href="{% url 'user' %}">CONTACT</a></li>
                             </ul><!-- flex -->
@@ -103,7 +109,7 @@
                     <div class="row justify-content-center">
                         <div class="see-complete-lineup">
                             <div class="entry-footer">
-                                <a href="{% url 'event:event' %}" class="btn">See all Events</a>
+                                <a href="{% url 'event:event' %}" class="btn">See other Events</a>
                             </div>
                         </div>
                     </div>

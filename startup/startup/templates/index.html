@@ -53,7 +53,7 @@
 
                             <ul>
                                 {% if user.is_authenticated %}
-                                <li><a href="#">Hello, {{user.first_name}}</a></li>
+                                <li><a href="{% url 'user' %}">Hello, {{user.first_name}}</a></li>
                                 <li><a href="{% url 'logout' %}">LOGOUT</a></li>
                                 <li><a href="#">HOME</a></li>
                                 {% else %}
