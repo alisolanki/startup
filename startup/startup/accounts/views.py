@@ -5,7 +5,20 @@ from .models import UserProfile
 
 # Create your views here.
 def login(request):
-    return render(request, 'login.html', {})
+    if request.method == 'POST':
+        usernamee = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(username = usernamee, password = password)
+
+        if user is not None:
+            auth.login(request, user)
+            return redirect('/')
+        else:
+            messages.info(request, 'Invalid username or password')
+            return redirect('login')
+    else:
+        return render(request, 'login.html', {})
 
 def register(request):
     if request.method == 'POST':
@@ -19,7 +32,7 @@ def register(request):
         if password1==password2:
             if User.objects.filter(username=username).exists():
                 messages.info(request,'Username already taken')
-                return redirect('/register/')
+                return redirect('register')
             elif User.objects.filter(email=email).exists():
                 messages.info(request,'Email already taken')
             else:    
@@ -30,9 +43,14 @@ def register(request):
                 profile.save()
                 user.save()
 
-                return redirect('/register/')
-            return redirect('/')
+                return redirect('login')
+            return redirect('register')
         else:
             messages.info(request,'Passwords not matching')
+            return redirect('register')
     else:
         return render(request, 'register.html', {})
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
