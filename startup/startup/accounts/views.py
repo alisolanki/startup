@@ -6,10 +6,10 @@ from .models import UserProfile
 # Create your views here.
 def login(request):
     if request.method == 'POST':
-        usernamee = request.POST['username']
+        username = request.POST['username']
         password = request.POST['password']
 
-        user = auth.authenticate(username = usernamee, password = password)
+        user = auth.authenticate(username = username, password = password)
 
         if user is not None:
             auth.login(request, user)

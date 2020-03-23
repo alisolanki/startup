@@ -53,16 +53,18 @@
 
                             <ul>
                                 {% if user.is_authenticated %}
-                                <li><a href="{% url 'user' %}">Hello, {{user.first_name}}</a></li>
-                                <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+                                <li><a href="{% url 'user' slug=user.username %}">Hello, {{user.first_name}}</a></li>
                                 <li><a href="#">HOME</a></li>
+                                <li><a href="#">BLOG</a></li>
+                                <li><a href="#">CONTACT</a></li>
+                                <li><a href="{% url 'logout' %}">LOGOUT</a></li>
                                 {% else %}
                                 <li><a href="#">HOME</a></li>
                                 <li><a href="{% url 'login' %}">LOGIN</a></li>
                                 <li><a href="{% url 'register' %}">REGISTER</a></li>
-                                {% endif %}
                                 <li><a href="#">BLOG</a></li>
-                                <li><a href="{% url 'user' %}">CONTACT</a></li>
+                                <li><a href="#">CONTACT</a></li>
+                                {% endif %}
                             </ul><!-- flex -->
                         </nav><!-- .site-navigation -->
                     </div><!-- .col-12 -->
