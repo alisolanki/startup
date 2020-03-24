@@ -185,7 +185,7 @@ a .material-icons {
 
 .img-raised:hover .rounded-circle{
     opacity: 0.8;
-background-size: cover;
+    background-size: cover;
 }
   
 .img-raised:hover .middle {
@@ -200,6 +200,7 @@ background-size: cover;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     text-align: center;
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2)
 }
 .text {
     background-color: #e7e7e7;

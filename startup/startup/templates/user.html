@@ -157,40 +157,55 @@
                 </div><!-- container -->
             
             <div class="tab-content tab-space">
-                <div class="tab-pane active text-center gallery" id="account">
-                    <div class="wrap-input100 validate-input m-b-23" data-validate = "Name is required">
+                <div class="tab-pane active gallery" id="account">
+                    <div class="wrap-input100 m-b-34">
                         <span class="label-input100"></span>
-                        <input class="input100" type="text" name="name" placeholder="Name">
-                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                        
+                        <div class="data">
+                            Name : 
+                            <span class="data-input">
+                                {{user.first_name}}
+                            </span>
+                        </div>
                     </div>
 
-                    <div class="wrap-input100 validate-input m-b-23" data-validate = "Phone number is required">
-                        <span class="label-input100"></span>
-                        <input class="input100" type="number" name="phonenumber" placeholder="Phone Number">
-                        <span class="focus-input100" data-symbol="&#xf2be;"></span>
+                    <div class="wrap-input100 m-b-34" data-validate = "Phone number is required">
+                        <!-- <span class="label-input100"></span> -->
+                        <div class="data">
+                            Phone Number : 
+                            <span class="data-input">
+                                {{userprofile.phonenumber}}
+                            </span>
+                        </div>
+                        <!-- <span class="focus-input100" data-symbol="&#xf2be;"></span> -->
                     </div>
                     
-                    <div class="wrap-input100 validate-input m-b-23" data-validate = "Email address is required">
-                        <span class="label-input100"></span>
-                        <input class="input100" type="text" name="email" placeholder="Email address (abc@gmail.com)">
-                        <span class="focus-input100" data-symbol="&#xf15a;"></span>
+                    <div class="wrap-input100 validate-input m-b-34" data-validate = "Email address is required">
+                        <!-- <span class="label-input100"></span> -->
+                        <div class="data">
+                            Email : 
+                            <span class="data-input">
+                                {{user.email}}
+                            </span>
+                        </div>
+                        <!-- <span class="focus-input100" data-symbol="&#xf15a;"></span> -->
                     </div>
                 </div><!--account-->
                 <div class="tab-pane text-center gallery" id="edit">
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "Name is required">
-                        <span class="label-input100">Name</span>
+                        <span class="label-input100"></span>
                         <input class="input100" type="text" name="name" placeholder="Name">
                         <span class="focus-input100" data-symbol="&#xf206;"></span>
                     </div>
 
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "Phone number is required">
-                        <span class="label-input100">Phone number</span>
+                        <span class="label-input100"></span>
                         <input class="input100" type="number" name="phonenumber" placeholder="Phone Number">
                         <span class="focus-input100" data-symbol="&#xf2be;"></span>
                     </div>
                     
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "Email address is required">
-                        <span class="label-input100">Email Address</span>
+                        <span class="label-input100"></span>
                         <input class="input100" type="text" name="email" placeholder="Email address (abc@gmail.com)">
                         <span class="focus-input100" data-symbol="&#xf15a;"></span>
                     </div>

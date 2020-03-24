@@ -216,6 +216,16 @@ iframe {
   border-bottom: 2px solid #d9d9d9;
 }
 
+.data{
+  padding-left: 0%;
+}
+.data-input{
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: bold;
+  padding-left: 0%;
+}
+
 .label-input100 {
   font-family: Poppins-Regular;
   font-size: 14px;
