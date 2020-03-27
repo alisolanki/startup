@@ -1,1 +1,1 @@
-web: gunicorn deploy:startup
+web: gunicorn deploy:app
