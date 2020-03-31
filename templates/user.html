@@ -3,18 +3,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>GuestIn</title>
-    
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <!-- Styles -->
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}">
+
     <!-- FontAwesome CSS -->
     <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/gif"> 
+
+    <!-- FA -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="{% static 'login/vendor/bootstrap/css/bootstrap.min.css' %}">
 <!--===============================================================================================-->
@@ -35,7 +48,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'login/css/util.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'login/css/main.css' %}">
 <!--===============================================================================================-->
-    <link rel="stylesheet" href="{% static 'user/main.css' %}">
+    <link rel="stylesheet" href="{% static 'user/usermain.css' %}">
 <!--===============================================================================================-->
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"> -->
     <!-- <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous"> -->
@@ -43,10 +56,8 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
     <!-- <link rel="stylesgeet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css"> -->
 
-    <!-- Favicon -->
-    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/gif"> 
 </head>
-<body class="elements-page">
+<body>
     <header class="site-header">
         <div class="header-bar">
             <div class="container-fluid">
@@ -111,7 +122,7 @@
                                                 </div>
                                             </div>
                                         </label>
-                                        <input name="picture" type="file" id="file-input" style="padding-right: 10vh;"/>
+                                        <input name="picture" type="file" id="file-input"/>
                                         <div class="container-login100-form-btn m-t-10">
                                             <div class="wrap-login100-form-btn">
                                                 <div class="login100-form-bgbtn"></div>
