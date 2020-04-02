@@ -5,7 +5,7 @@ from accounts.models import UserProfile
 
 # Create your views here.
 def user(request, slug):
-    user = User.objects.get(username=slug)
+    user = User.objects.get(username=request.user.username)
     userprofile = UserProfile.objects.get(user = user)
     if request.method == 'POST':
         # Profile Picture Update
