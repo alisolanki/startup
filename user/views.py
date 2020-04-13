@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from accounts.models import UserProfile
+from accounts.models import UserProfile, RegisteredEvent
+from event.models import Event
 
 # Create your views here.
 def user(request, slug):
@@ -39,6 +40,9 @@ def user(request, slug):
             #         user.save()
             return render(request, 'user.html', {'userprofile' : userprofile,'user': user})
     else:
-        # user = User.objects.get(username = slug)
-        # userprofile = UserProfile.objects.get(user = user)
-        return render(request, 'user.html', {'userprofile' : userprofile,'user': user})
+        registeredevents = RegisteredEvent.objects.filter(userprofile = userprofile)
+        events = []
+        for x in registeredevents:
+            newevent = Event.objects.get(slug = x.eventid)
+            events.append(newevent)
+        return render(request, 'user.html', {'userprofile' : userprofile,'user': user, 'registeredevents': events})

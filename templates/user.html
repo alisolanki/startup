@@ -162,17 +162,17 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link" href="#favorite" role="tab" data-toggle="tab">
+                                    <i class="material-icons">favorite</i>
+                                        Events
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" href="#edit" role="tab" data-toggle="tab">
                                     <i class="material-icons">edit</i>
                                         Edit
                                     </a>
                                 </li>
-                                <!-- <li class="nav-item">
-                                    <a class="nav-link" href="#favorite" role="tab" data-toggle="tab">
-                                    <i class="material-icons">favorite</i>
-                                        Favorite
-                                    </a>
-                                </li> -->
                             </ul>
                         </div><!-- col-md-6 ml-auto mr-auto -->
                     </div><!-- row -->
@@ -213,6 +213,41 @@
                         <!-- <span class="focus-input100" data-symbol="&#xf15a;"></span> -->
                     </div>
                 </div><!--account-->
+
+                <div class="tab-pane text-center gallery" id="favorite">
+                    <div class="container" style="padding-bottom: 50px;">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="the-complete-lineup">            
+                                    <div class="row the-complete-lineup-artists">
+                                        {% for event in registeredevents %}
+                                        <div class="col-6 col-md-4 col-lg-3 artist-single">
+                                            <figure class="featured-image">
+                                                <a href="{% url 'event:eventid' slug=event.slug %}"> <img src="{{event.img.url}}" alt="Flyer"> </a>
+                                                <!-- <a href="#" class="box-link"> <img src="{{event.img.url}}" alt=""> </a> -->
+                                            </figure>  <!--featured image-->
+            
+                                            <h2>{{event.name}}</h2>
+                                            <p>
+                                                <a href="{% url 'place:placeid' place=event.place %}" style="float: right;">{{event.place}}</a>
+                                            </p>
+                                        </div> <!-- artist lineup -->
+                                        {% endfor %}
+                                    </div><!--row the-complete-lineup-artists-->
+                                </div><!-- the-complete-lineup -->
+            
+                                <div class="row justify-content-center">
+                                    <div class="see-complete-lineup">
+                                        <div class="entry-footer">
+                                            <a href="{% url 'event:event' %}" class="btn">See all Events</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- col-12 -->
+                        </div><!-- row -->
+                    </div><!-- container -->
+                </div><!--favorite-->
+
                 <div class="tab-pane text-center gallery" id="edit">
                     <form class="login100-form validate-form" action="/user/{{user.username}}" method="post">
                         {% csrf_token %}
@@ -272,13 +307,10 @@
                         </div>
                     </form>
                 </div><!--edit-->
-            </div><!--tab content-->
-
-            
-                </div>
-            </div>
-        </div>
-    </div>
+            </div><!--tab content--> 
+        </div><!--main-main-raised-->
+    </div><!--profile-page-->
+        
     <script type='text/javascript' src={% static 'js/jquery.js' %}></script>
     <script type='text/javascript' src={% static 'js/masonry.pkgd.min.js' %}></script>
     <script type='text/javascript' src={% static 'js/jquery.collapsible.min.js' %}></script>
