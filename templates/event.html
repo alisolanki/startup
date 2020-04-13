@@ -133,29 +133,43 @@
                             Confirmation will be sent through <span style="color: #4fce5d;">WhatsApp</span>
                         </div>
                         {% else %}
-                            <form class="login100-form validate-form" action="/user/" method="POST">
+                            <form class="login100-form validate-form" action="/registerevent/" method="POST">
+                                {% csrf_token %}
+                                <input style="visibility: hidden;" name="slug" value="{{eventid.slug}}">
                                 <span class="login100-form-title p-b-49 p-t-49">
-                                    Register {{registeredevent.eventid}}
+                                    Register
                                 </span>
-            
+                                
                                 <div class="wrap-input100 validate-input m-b-23" data-validate = "Name is required">
                                     <span class="label-input100">Name</span>
-                                    <input class="input100" type="text" name="name" placeholder="Name">
+                                    <input class="input100" type="text" name="name" placeholder="Name"
+                                    value="{{userprofile.name}}">
                                     <span class="focus-input100" data-symbol="&#xf206;"></span>
                                 </div>
             
                                 <div class="wrap-input100 validate-input m-b-23" data-validate = "Phone number is required">
                                     <span class="label-input100">Phone number</span>
-                                    <input class="input100" type="number" name="phonenumber" placeholder="Phone Number">
+                                    <input class="input100" type="number" name="phonenumber" placeholder="Phone Number"
+                                    value="{{userprofile.phonenumber}}">
                                     <span class="focus-input100" data-symbol="&#xf2be;"></span>
                                 </div>
                                 
                                 <div class="wrap-input100 validate-input m-b-23" data-validate = "Email address is required">
                                     <span class="label-input100">Email Address</span>
-                                    <input class="input100" type="text" name="email" placeholder="Email address (abc@gmail.com)">
+                                    <input class="input100" type="text" name="email" placeholder="Email address (abc@gmail.com)"
+                                    value="{{user.email}}">
                                     <span class="focus-input100" data-symbol="&#xf15a;"></span>
                                 </div>
 
+                                {% if user.is_authenticated %}
+                                <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is required">
+                                    <span class="label-input100">Username</span>
+                                    <input class="input100" type="text" name="username" placeholder="Username: {{user.username}}"
+                                    value="{{user.username}}">
+                                    <span class="focus-input100" data-symbol="&#xf206;"></span>
+                                </div>
+                                {% endif %}
+                                
                                 <div class="wrap-input100 validate-input m-b-23" data-validate = "Total number of people">
                                     <span class="label-input100">Number of People</span>
                                     <input class="input100" type="number" name="people" placeholder="Number of People">

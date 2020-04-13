@@ -15,4 +15,5 @@ def eventid(request, slug):
     user = User.objects.get(username = request.user.username)
     userprofile = UserProfile.objects.get(user = user)
     registeredevent = RegisteredEvent.objects.filter(userprofile = userprofile, eventid = slug).first() # There is only one object
-    return render(request, 'event.html', {'eventid': eventid, 'events': events, 'registeredevent': registeredevent, 'slug': slug})
+    
+    return render(request, 'event.html', {'userprofile': userprofile, 'eventid': eventid, 'events': events, 'registeredevent': registeredevent, 'slug': slug})
