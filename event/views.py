@@ -12,8 +12,12 @@ def event(request):
 def eventid(request, slug):
     events = Event.objects.all()
     eventid = Event.objects.get(slug = slug)
-    user = User.objects.get(username = request.user.username)
-    userprofile = UserProfile.objects.get(user = user)
-    registeredevent = RegisteredEvent.objects.filter(userprofile = userprofile, eventid = slug).first() # There is only one object
+    if request.user.is_authenticated:
+        user = User.objects.get(username = request.user.username)
+        userprofile = UserProfile.objects.get(user = user)
+        registeredevent = RegisteredEvent.objects.filter(userprofile = userprofile, eventid = slug).first() # There is only one object
     
-    return render(request, 'event.html', {'userprofile': userprofile, 'eventid': eventid, 'events': events, 'registeredevent': registeredevent, 'slug': slug})
+        return render(request, 'event.html', {'userprofile': userprofile, 'eventid': eventid, 'events': events, 'registeredevent': registeredevent, 'slug': slug})
+    else:
+
+        return render(request, 'event.html', {'eventid': eventid, 'events': events, 'slug': slug})

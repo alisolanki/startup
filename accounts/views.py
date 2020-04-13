@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from .models import UserProfile, RegisteredEvent
+from event.models import NewUserRegisterEvent
 
 # Create your views here.
 def login(request):
@@ -57,15 +58,15 @@ def logout(request):
 
 def registerevent(request):
     if request.method == 'POST':
-        user = User.objects.get(username=request.user.username)
+        name = request.POST['name']
+        phonenumber = request.POST['phonenumber']
+        email = request.POST['email']
+        people = request.POST['people']
+        slug = request.POST['slug']
 
-        if user is not None:
+        if request.user.is_authenticated:
+            user = User.objects.get(username = request.user.username)
             userprofile = UserProfile.objects.get(user = user)
-            name = request.POST['name']
-            phonenumber = request.POST['phonenumber']
-            email = request.POST['email']
-            people = request.POST['people']
-            slug = request.POST['slug']
             username = request.POST['username']
 
             registeredevent = RegisteredEvent(userprofile = userprofile, eventid = slug, name = name, email = email, phonenumber = phonenumber, number_of_people = people, username = username)
@@ -73,10 +74,7 @@ def registerevent(request):
 
             return redirect('/')
         else:
-            name = request.POST['name']
-            phonenumber = request.POST['phonenumber']
-            email = request.POST['email']
-            people = request.POST['people']
-            slug = request.POST['slug']
-        
+            registeredevent = NewUserRegisterEvent(eventid = slug, name = name, email = email, phonenumber = phonenumber, number_of_people = people)
+            registeredevent.save()
+
             return redirect('/')

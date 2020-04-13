@@ -27,4 +27,3 @@ class RegisteredEvent(models.Model):
 
     def __str__(self):
         return self.userprofile.name
-
