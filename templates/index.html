@@ -154,83 +154,20 @@
             <div class="next-event-slider-wrap">
                 <div class="swiper-container next-event-slider">
                     <div class="swiper-wrapper">
+                        {% for place in places %}
                         <div class="swiper-slide">
                             <div class="next-event-content">
                                 <figure class="featured-image">
-                                    <img src="{% static 'images/next-event-1.jpg' %}" alt="">
+                                    <img src="{{place.img.url}}" alt="{{place.name}}">
 
                                     <a href="{% url 'place:place' %}" class="entry-content flex flex-column justify-content-center align-items-center">
-                                        <h3>Welcoming Party 2018</h3>
+                                        <h3>{{place.name}}</h3>
                                         <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
                                     </a>
                                 </figure><!-- featured-image -->
                             </div><!-- next-event-content -->
                         </div><!-- swiper-slide" -->
-
-                        <div class="swiper-slide">
-                            <div class="next-event-content">
-                                <figure class="featured-image">
-                                    <img src="{% static 'images/next-event-2.jpg' %}" alt="">
-
-                                    <a href="{% url 'place:place' %}" class="entry-content flex flex-column justify-content-center align-items-center">
-                                        <h3>Welcoming Party 2018</h3>
-                                        <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
-                                    </a>
-                                </figure><!-- featured-image -->
-                            </div><!-- next-event-content -->
-                        </div><!-- swiper-slide" -->
-
-                        <div class="swiper-slide">
-                            <div class="next-event-content">
-                                <figure class="featured-image">
-                                    <img src="{% static 'images/next-event-3.jpg' %}" alt="">
-
-                                    <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
-                                        <h3>Welcoming Party 2018</h3>
-                                        <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
-                                    </a>
-                                </figure><!-- featured-image -->
-                            </div><!-- next-event-content -->
-                        </div><!-- swiper-slide" -->
-
-                        <div class="swiper-slide">
-                            <div class="next-event-content">
-                                <figure class="featured-image">
-                                    <img src="{% static 'images/next-event-1.jpg' %}" alt="">
-
-                                    <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
-                                        <h3>Welcoming Party 2018</h3>
-                                        <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
-                                    </a>
-                                </figure><!-- featured-image -->
-                            </div><!-- next-event-content -->
-                        </div><!-- swiper-slide" -->
-
-                        <div class="swiper-slide">
-                            <div class="next-event-content">
-                                <figure class="featured-image">
-                                    <img src="{% static 'images/next-event-2.jpg' %}" alt="">
-
-                                    <a href="#" class="entry-content flex flex-column justify-content-center align-items-left">
-                                        <h3>Welcoming Party 2018</h3>
-                                        <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
-                                    </a>
-                                </figure><!-- featured-image -->
-                            </div><!-- next-event-content -->
-                        </div><!-- swiper-slide" -->
-
-                        <div class="swiper-slide">
-                            <div class="next-event-content">
-                                <figure class="featured-image">
-                                    <img src="{% static 'images/next-event-3.jpg' %}" alt="">
-
-                                    <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
-                                        <h3>Welcoming Party 2018</h3>
-                                        <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
-                                    </a>
-                                </figure><!-- featured-image -->
-                            </div><!-- next-event-content -->
-                        </div><!-- swiper-slide" -->
+                        {% endfor %}
                     </div><!-- .swiper-wrapper -->
                 </div><!-- .swiper-container -->
 

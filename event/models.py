@@ -2,15 +2,15 @@ from django.db import models
 from django.db.models.signals import post_delete
 from django.contrib.auth.models import User
 from django.dispatch import receiver
+from place.models import Place
 
-# Create your models here.
 class Event(models.Model):
 
     img = models.ImageField(upload_to = 'pics')
     name = models.CharField(max_length = 50, default = 'event-name')
     slug = models.CharField(max_length = 50, default = 'name%place%01%01%2001%')
     date = models.DateField()
-    place = models.CharField(max_length = 50)
+    place = models.ForeignKey(Place, on_delete=models.CASCADE)
     time = models.TimeField()
     price = models.IntegerField(default=0)
 
